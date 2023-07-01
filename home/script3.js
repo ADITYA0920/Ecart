@@ -51,6 +51,9 @@ function getRandomColor(){
 //working
 async function renderData(rootData){
         
+    while(cardContainer.firstChild){
+        cardContainer.removeChild(cardContainer.firstChild);
+    }
         await rootData.forEach((ele) => {
             
             
@@ -260,4 +263,13 @@ function redirect(page){
 
 const search = document.getElementById("search");
 
-// let 
+function searchh(){
+   let temp = rootData.filter((ele) => {
+    return ele.category === search.value ;
+}) 
+    console.log("Seach clicked");
+    console.log(temp) ;
+    renderData(temp);
+}
+
+

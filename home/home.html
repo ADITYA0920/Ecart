@@ -11,6 +11,18 @@
        .nav-bar{
         border: 2px solid yellow;
        }
+       #srh img{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-top: 3px;
+       }
+       #srh button{
+        height: 50px;
+        width: 50px;
+        border: 1px solid black;
+        border-radius: 50%;
+       }
     </style>
     <title>Home</title>
 </head>
@@ -114,7 +126,11 @@
           </div>
 
           <div class="right">
-            <input type="text" placeholder=" search" id="search">
+            <div id="srh">
+                <input type="text" placeholder=" search" id="search"  >
+                <button onclick="searchh()"><img src="icon.jpg" alt=""></button>
+            </div>
+            
             <div class="category">
                 <button class="myButtons" onclick="filterData('All')">All</button>
                 <button class="myButtons" onclick="filterData('Mens')">Mens</button>

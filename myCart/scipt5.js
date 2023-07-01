@@ -17,8 +17,11 @@ function renderData(data){
     while (leftContainer.firstChild) {
         leftContainer.removeChild(leftContainer.firstChild);
       }
+    while (itemContainer.firstChild) {
+    itemContainer.removeChild(itemContainer.firstChild);
+    }
       if(data.length == 0){
-        leftContainer.innerHTML = 'cart is Emptu' ;
+        leftContainer.innerHTML = 'cart is Empty' ;
       }
     data.forEach(ele => {
         //for left conainer
@@ -51,9 +54,7 @@ function renderData(data){
         // for right container
         let currRightObj = document.createElement("div");
                     
-        while (itemContainer.firstChild) {
-            itemContainer.removeChild(itemContainer.firstChild);
-          }
+        
 
         currRightObj.innerHTML = `
             <div class="data">
@@ -75,6 +76,13 @@ function renderData(data){
         
     });
 }
+document.getElementById("checkout").addEventListener('click',(btn)=>{
+    alert("order placed") ;
+    data = "" ;
+        given_data.cart = data ;
+        sessionStorage.setItem('loggedInUser',JSON.stringify(given_data));
+        renderData(data);
+}) ;
 // --------------------------------------------------------------------------------------------------------------->
 function findTotal(data){
     console.log("click");
@@ -93,6 +101,7 @@ function removeProduct(curr){
              return curr.id !== curr_obj.id ;
         })
         console.log(data) ;
-        localStorage.setItem('loggedInUser',JSON.stringify(data));
+        given_data.cart = data ;
+        sessionStorage.setItem('loggedInUser',JSON.stringify(given_data));
         renderData(data);
 }
