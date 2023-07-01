@@ -77,11 +77,8 @@ function renderData(data){
     });
 }
 document.getElementById("checkout").addEventListener('click',(btn)=>{
-    alert("order placed") ;
-    data = "" ;
-        given_data.cart = data ;
-        sessionStorage.setItem('loggedInUser',JSON.stringify(given_data));
-        renderData(data);
+    sessionStorage.setItem('totalAmount',JSON.stringify(findTotal(data))) ;
+    window.location.href = '/rozarPay' ;
 }) ;
 // --------------------------------------------------------------------------------------------------------------->
 function findTotal(data){

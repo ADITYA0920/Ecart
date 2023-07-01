@@ -4,6 +4,7 @@ const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const cnfPassword = document.getElementById("confirmPassword");
+
 const loginRedirect = document.getElementById('loginRedirect');
 
 const cnfPasswordValue = document
@@ -104,7 +105,7 @@ signupBtn.addEventListener("click", (event) => {
 
 
 loginRedirect.addEventListener('click',()=>{
-  window.location.href='/home';
+  window.location.href='/login';
 })
 
 // array of users -> array of objects -> object (user details)

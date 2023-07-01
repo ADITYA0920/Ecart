@@ -1,5 +1,6 @@
 let cardContainer = document.getElementsByClassName("cards")[0] ;
 let currUSER = JSON.parse(sessionStorage.getItem('loggedInUser'));
+
 let users = JSON.parse(localStorage.getItem('users'));
 
 let currUserCart = currUSER.cart ;
@@ -37,7 +38,7 @@ function updateData(ele){
     if(ele.category ==="men's clothing"  || ele.category === "women's clothing")
         {
         ele.color = getRandomColor() ;
-        ele.size = size ;}
+        }
         else{
             ele.color = getRandomColor() ;
             
@@ -65,8 +66,9 @@ async function renderData(rootData){
             
             
                  updateData(ele) ;
-            
+
                 //  
+               
             let curr = document.createElement('div');
 
 
@@ -76,7 +78,7 @@ async function renderData(rootData){
                         <img src="${ele.image}" alt="">
                         </div>
                         <div class="desc">
-                        <h4>${ele.title}</h4>
+                        <h4 id="tt">${ele.title}</h4>
                         <div class="prz">
                             <span>Prize: ${ele.price}$</span>
                             <div class="size"${ele.size}></div> 
@@ -211,7 +213,7 @@ function applyfilter(){
     // document.getElementById("demo").innerHTML = elements[0].value;
 
     let clr = document.getElementsByName("color")[0].value ;
-    let size = document.getElementsByName("size")[0].value  ;
+    let selected_size = document.getElementsByName("size")[0].value  ;
     
 
     // console.log(typeof(clr)) ;
@@ -219,22 +221,14 @@ function applyfilter(){
 
     let tempData = rootData ;
     
-    leftfilter =  tempData.filter((ele)=>{
-        console.log(clr);
+    leftfilter =  tempData.filter((ele)=>{ele.color === clr});
         
-        console.log(`curr color is ${ele.color} and selected is ${clr}`);
-      return  ele.color === clr ;
-
-            //  return clr.includes(ele.color) ;
-         }
-        );
-
-    
-    leftfilter = leftfilter.filter((ele)=>{ele.size.includes(size) });
+    leftfilter = leftfilter.filter((ele)=>{ele.size === selected_size });
 
     if(price.checked)
     leftfilter = leftfilter.filter((ele) => {ele.price  <= price}) ;
     // cardContainer.innerHTML = "";
+    
     renderData(leftfilter) ;
     
 }
