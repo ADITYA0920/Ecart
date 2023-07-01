@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyProfile</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+        .header{
+            background-color: black;
+            color: white;
+            padding: 15px;
+        }
+        #shpheader{
+            font-size: 20px;
+        }
+        .main{
+            margin-left: 100px;
+        }
+        .up,.down{
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+        }
+        .headings{
+            font-size: 40px;
+            margin: 5px auto 0px;
+        }
+        .header{
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+        }
+        input{
+            width: 80%;
+            height: 35px;
+            font-size: 18px;
+            border: none;
+            border-bottom: 2px solid gray;
+        }
+        button{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h2 id="shpheader">shopping cart</h2>
+        </div>
+
+        <div class="main">
+                    <div class="up">
+                        <h1 class="headings">My Profile</h1>
+                        <br>
+                        <input type="text" placeholder="firstName" id="firstName">
+                        <br>
+                        <input type="text" placeholder="lastName" id="lastName">
+                        <br>
+                        <button onclick="saveInfo()"> Save Info</button>
+                    </div>
+
+                    <div class="down">
+                        <h1 class="headings">Edit password</h1>
+                        <input type="text" placeholder="oldPassword" id="oldPassWord">
+                        <br>
+                        <input type="text" placeholder="newPassword" id="newPassWord">
+                        <br>
+                        <input type="text" placeholder="confirmPassword" id="confirmPassWord">
+                        <br>
+                        <button id="updatePassword"  onclick="updatePass()">Update password</button>
+                        <br>
+                        <button id="logout">Logout</button>
+                    </div>
+                </div>
+    </div>
+    <script src="scipt6.js"></script>
+</body>
+</html>

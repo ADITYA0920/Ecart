@@ -1,0 +1,185 @@
+/* <div class="card">
+<div id="img">
+<img src="tshirt.png" alt="">
+</div>
+<div class="desc">
+    <h2></h2>
+    <div class="prz">
+        <span>Prize</span>
+        <!-- // optins -->
+        <div class="size">size</div> 
+    </div>
+    <h2>Colors : </h2>
+    <h2>Rating : </h2>
+    
+</div>
+</div> */
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Rubik', sans-serif;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    
+}
+.heading{
+    font-size: 20px;
+    font-weight: 500;
+    padding: 20px;
+    margin-left: 25px;
+}
+.nav-bar{
+    display: flex;
+    column-gap: 30px;
+    padding: 20px;
+    margin-right: 25px;
+    /* border: 1px solid white; */
+}
+.nav-bar span{
+    font-size: 18px;
+    font-family: 200px;
+    margin-right: 25px;
+}
+.nav-bar span:hover{
+    cursor: pointer;
+    background-color: gray;
+    
+}
+/* ----------------------------------------------------------------------------------------------> */
+.card{
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 300px;
+    height: 500px;
+    border: 1px solid rgb(71, 68, 68);
+    
+}
+
+.desc{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#img{
+    max-width: 250px;
+    max-height: 300px;
+    /* border: 2px solid red; */
+    
+}
+
+#img img{
+    width: 240px;
+   height: 290px;
+   margin-left: 30px;
+   transition: 0.4s;
+}
+#img img:hover{
+    transform :scaleX(1.1) scaleY(1.1);
+}
+.prz{
+    display: flex;
+    justify-content: space-between;
+}
+.card button{
+    width: auto;
+    height: 35px;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.card button:hover{
+    transform: scaleX(0.9) scaleY(0.9);
+    background-color: rgb(26, 25, 25);
+}
+.desc{
+    height: 250px;
+    overflow-y: auto;
+    border: 1px solid green;
+}
+/* ----------------------------------------------------------------------------------------------> */
+.container{
+     display: grid;
+     grid-template-columns: 250px auto ;
+}
+.left{
+    
+    background-color: black;
+    color: white;
+    
+}
+.right{
+    border: 2px solid orangered;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 10px;
+    overflow-y: auto;
+}
+.right input{
+    width: 90%;
+    height: 35px;
+    padding: 10px 20px;
+    align-items: center;
+    font-size: 20px;
+}
+.category{
+    display: flex;
+    /* justify-content: space-between; */
+    column-gap:60px;
+    margin-right: 20px;
+}
+.category button{
+    width: 150px;
+    height: 40px;
+    font-size:18px;
+}
+.cards{
+    display: grid ;
+    grid-template-columns: repeat(3, 200px);
+    column-gap: 150px;
+    
+    height: 900px;
+    overflow-y: auto;
+    justify-content: space-evenly;
+}
+.rating{
+    margin: 15px;
+    row-gap: 15px;
+}
+.l-box{
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 3px solid rgb(213, 213, 213);
+    row-gap: 10px;
+}
+.l-box h4{
+    margin-bottom: 15px;
+}
+.cls{
+    display: flex;
+    column-gap: 10px;
+}
+#btn{
+    width: 150px;
+    height: 35px;
+    font-size: 18px;
+    margin: 15px;
+    cursor: pointer;
+}

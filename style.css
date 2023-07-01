@@ -1,0 +1,101 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Belanosima', sans-serif;
+}
+body{
+    background-image: url(landingPagePic.png);
+    background-repeat: no-repeat;
+    background-size: 65%;
+    background-position-x: right;
+    background-position-y: 200;
+    
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+}
+.heading{
+    font-size: 20px;
+    font-weight: 500;
+    padding: 20px;
+    margin-left: 25px;
+}
+.nav-bar{
+    display: flex;
+    column-gap: 30px;
+    padding: 20px;
+    margin-right: 25px;
+    padding: 10px;
+    /* border: 1px solid white; */
+}
+.nav-bar span{
+    font-size: 18px;
+    font-weight: 200;
+    margin-right: 25px;
+    padding: 10px;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+.nav-bar span:hover{
+    cursor: pointer;
+    background-color: gray;
+    
+}
+.inner{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-left: 50px;
+    margin-top: 100px;
+    
+}
+.inner h2{
+    font-size: 50px;
+    
+}
+.inner h4{
+    font-size: 25px;
+    font-weight: 50;
+}
+.btns{
+    display: flex;
+    margin-left: 15px;
+    align-items: center;
+    transition: 0.4s;
+}
+
+#login{
+width: 150px;
+height: 35px;
+padding: 12px 12px;
+font-size: 18px;
+align-items: center;
+background-color: black;
+color: white;
+transition: 0.4s;
+}
+#login:hover{
+    background-color: rgb(52, 49, 49);
+    cursor: pointer;
+}
+#signUp{
+width: 150px;
+height: 35px;
+padding: 12px 12px;
+font-size: 18px;
+background-color: black;
+color: white;
+transition: 0.4s;
+margin-left: 25px;
+
+}
+#signUp:hover{
+    background-color: rgb(52, 49, 49);
+    cursor: pointer;
+}

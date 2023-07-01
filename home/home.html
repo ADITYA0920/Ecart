@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+       .nav-bar{
+        border: 2px solid yellow;
+       }
+    </style>
+    <title>Home</title>
+</head>
+
+
+<body>
+    <div class="header">
+        <div class="heading">E-SHOP</div>
+        <div class="nav-bar">
+            <span onclick="redirect('Home')">Home</span>
+            <span onclick="redirect('Login')">Login</span>
+            <span onclick="redirect('SignUp')">SignUp</span>
+            <span onclick="redirect('MyCart')">MyCart</span>
+            <span onclick="redirect('MyProfile')">My Profile</span>
+        </div>
+    </div>
+    <div class="container">
+          <div class="left">
+
+                <div class="l-box">
+                    <h4>Colors</h4>
+                        <div class="cls">
+                            
+                            <input type="checkbox" value="red" name="color">
+                            <span>Red</span>
+                        </div>
+                        <div class="cls">
+                           
+                            <input type="checkbox" value="blue" name="color"> 
+                            <span>Blue</span>
+                        </div>
+                        <div class="cls">
+                            
+                            <input type="checkbox" value="green" name="color">
+                            <span>Green</span>
+                        </div>
+                        <div class="cls">
+                            
+                            <input type="checkbox" value="black" name="color">
+                            <span>Black</span>
+                        </div>
+                        <div class="cls">
+                            
+                            <input type="checkbox" value="white" name="color">
+                            <span>White</span>
+                        </div>
+                </div>
+
+                <div class="l-box">
+                    <h4>Size's</h4>
+                    <div>
+                        
+                        <input type="checkbox" value="S" name="size">
+                        <span>S</span>
+                    </div>
+                    <div>
+                        
+                        <input type="checkbox" value="M" name="size">
+                        <span>M</span>
+                    </div>
+                    <div>
+                        
+                        <input type="checkbox" value="L" name="size">
+                        <span>L</span>
+                    </div>
+                    <div>
+                        
+                        <input type="checkbox" value="XL" name="size">
+                        <span>XL</span>
+                    </div>
+                </div>
+
+                <div class="l-box">
+                    <h4>range</h4>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="5" value="50"  id="myRange">
+                      </div>
+                </div>
+                <div class="l-box">
+                    <h4>Price Range</h4>
+                    <div class="cls">
+                        <input type="checkbox" name="price">
+                        <span>$ 0 to $ 25</span>
+                    </div>
+                    <div class="cls">
+                        <input type="checkbox" name="price">
+                        <span>$ 25 to $ 50</span>
+                    </div>
+                    <div class="cls">
+                        <input type="checkbox" name="price">
+                        <span>$ 50 to $100</span>
+                    </div>
+                    <div class="cls">
+                        <input type="checkbox" name="price">
+                        <span>above $100</span>
+                    </div>
+                </div>
+
+                <button id="btn" onclick="applyfilter()">Apply Filter</button>
+
+          </div>
+
+          <div class="right">
+            <input type="text" placeholder=" search" id="search">
+            <div class="category">
+                <button class="myButtons" onclick="filterData('All')">All</button>
+                <button class="myButtons" onclick="filterData('Mens')">Mens</button>
+                <button class="myButtons" onclick="filterData('Womes')">Womes</button>
+                <button class="myButtons" onclick="filterData('Jewellory')">Jewellory</button>
+                <button class="myButtons" onclick="filterData('Electronics')">Electronics</button>
+            </div>
+            <h2>Men's Clothing</h3>
+                 <div class="cards">
+
+                 </div>
+            <h2>women's Clothing</h3>
+                <div class="cards">
+                    
+            </div>
+            </div>
+            
+          </div>
+
+    <script src="script3.js"></script>
+
+</body>
+</html>

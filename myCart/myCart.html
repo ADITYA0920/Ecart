@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCart</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            margin-left: 100px;
+            margin-right: 50px;
+            margin-bottom: 50px;
+            margin-top: 50;
+        }
+        #heading{
+            font-size: 45px;
+            margin-top: 60px;
+            margin-left: 500px;
+        }
+        .grid{
+            display: grid;
+            /* margin: 100px; */
+            grid-template-columns: 900px auto ;
+            gap: 5px;
+        }
+        .left{
+            border: 2px solid black;
+        }
+        
+        .right{
+            display: flex;
+            flex-direction: column;
+            border: 2x solid green;
+            row-gap: 5px;
+        }
+        #checkHead{
+            font-size: 20px;
+            margin-left: 80px;
+        }
+        .data{
+            display: flex;
+            justify-content: space-between;
+             border-bottom: 2px solid gray;
+        }
+        #total{
+            display: flex;
+            justify-content: space-between;
+           
+        }
+        #checkout{
+            width: fit-content;
+            height: 35px;
+            margin-left: 80px;
+            /* font-size: 18px; */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            <h1 id="heading">My Cart</h1>
+            <div class="grid">
+                <div class="left">
+                    <!-- // use dynamic data -->
+
+
+                </div>
+                <div class="right">
+                    <!-- use dynamic data -->
+                    <h2 id="checkHead">Checkout List</h2>
+                        
+                            <span id="totalPrize">Prize${}</span>
+                        </div>
+                        
+                        <button id="checkout">Click to CheckOut</button>
+                </div>
+            </div>
+        </div>
+        <script src="scipt5.js"></script>
+</body>
+</html>

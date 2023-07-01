@@ -1,0 +1,44 @@
+*{
+    margin: 0px;
+    padding: 0px;
+   font-family:  'Rubik', sans-serif ;
+}
+body{
+    background-image: url(bg2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    margin: 100px auto 0px;
+    width: 400px;
+    border: 1px solid rgb(253, 242, 242);
+    border-radius: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, .5);
+    /* opacity: 0.5; */
+
+}
+.card  #signUp{
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+.card input{
+    width: 80%;
+    height: 40px;
+    border: none;
+    margin-left: 20px;
+    border-bottom: 2px solid gray;
+    color: white;
+    font-size: 20px;
+    background: none;
+    transition: 0.4s;
+}
+.card input:hover{
+    border-bottom: 2px solid rgb(84, 222, 77);
+}

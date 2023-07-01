@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <title>Sign-up</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+           font-family:  'Rubik', sans-serif ;
+        }
+        body{
+            background-image: url(bg1.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            justify-content: center;
+            margin: 100px auto 0px;
+            width: 400px;
+            border: 1px solid rgb(253, 242, 242);
+            border-radius: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, .1);
+
+        }
+        .card  #signUp{
+            font-size: 20px;
+            font-weight: 400;
+            text-decoration: underline;
+        }
+        .card input{
+            width: 80%;
+            height: 40px;
+            border: none;
+            margin-left: 20px;
+            border-bottom: 2px solid gray;
+            color: white;
+            font-size: 20px;
+            background: none;
+            transition: 0.4s;
+        }
+        .card input:hover{
+            border-bottom: 2px solid rgb(84, 222, 77);
+        }
+        #signupBtn{
+            width: 80px;
+            height: 30px;
+            background-color: gray;
+            color: white;
+            font-size: 19px;
+            margin: 5px auto 0px;
+        }
+        #Already{
+            width: 80px;
+            height: 30px;
+            padding: 15px;
+            border: none;
+            border-bottom: 2px solid black;
+        }
+        #loginRedirect{
+            height: 35px;
+            border-radius: 10px;
+            width: fit-content;
+            margin : 5px auto 0;
+            transition: 0.5s;
+        }
+        #loginRedirect:hover{
+            transform: scaleX(1.1) scaleY(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+    <h1 id="signUp">Signup</h1>
+
+
+    <form>
+        <div>
+            
+            <input type="text" id="firstName" placeholder="firstName"/>
+        </div>
+        <br />
+        <div>
+            
+            <input type="text" id="lastName" placeholder="lastName"/>
+        </div>
+        <br />
+        <div>
+            
+            <input type="email" id="email" placeholder="email"/>
+        </div>
+        <br />
+        <div>
+           
+            <input type="password" id="password" placeholder="password"/>
+        </div>
+        <br />
+        <div>
+            
+            <input type="password" id="confirmPassword" placeholder="confirmPassword"/>
+        </div>
+        <br />
+        <button type="submit" id="signupBtn">Submit</button>
+        <!-- <button type="submit" id="Already">Already have account</button> -->
+    </form>
+    <br />
+
+
+    <button id="loginRedirect">Already a User? Sign in</button>
+
+  </div>
+    <script src="scipt4.js"></script>
+</body>
+
+</html> 
