@@ -58,12 +58,12 @@ function renderData(data){
 
         currRightObj.innerHTML = `
             <div class="data">
-                    <div >
+                    <div id="innerData">
                         <span>${ele.id}.</span>
-                        <span>name${ele.title}</span>
+                        <span>${ele.title}</span>
                     </div>
-                    <div >
-                        price${ele.price} $;
+                    <div id="prz">
+                        ${ele.price} $;
                     </div>
              </div>
         `

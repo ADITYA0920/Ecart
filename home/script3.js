@@ -1,5 +1,7 @@
 let cardContainer = document.getElementsByClassName("cards")[0] ;
 let currUSER = JSON.parse(sessionStorage.getItem('loggedInUser'));
+let users = JSON.parse(localStorage.getItem('users'));
+
 let currUserCart = currUSER.cart ;
 
 console.log(currUserCart);
@@ -33,19 +35,24 @@ let rootData ;
 // --------------------------------------------------------------------------------------------------------------->
 function updateData(ele){
     if(ele.category ==="men's clothing"  || ele.category === "women's clothing")
-        {ele.color = getRandomColor() ;
+        {
+        ele.color = getRandomColor() ;
         ele.size = size ;}
         else{
             ele.color = getRandomColor() ;
-            ele.size = [] ;
+            
         }
-    ele.rating = 4.5;
+    ele.rating = '4.5/5';
+    ele.size = getRandomSize() ;
 }
 
 // --------------------------------------------------------------------------------------------------------------->
 function getRandomColor(){
     idx++ ;
     return color[idx % 5] ;
+}
+function getRandomSize(){
+    return size[idx % 5] ;
 }
 // --------------------------------------------------------------------------------------------------------------->
 //working
@@ -58,7 +65,7 @@ async function renderData(rootData){
             
             
                  updateData(ele) ;
-
+            
                 //  
             let curr = document.createElement('div');
 
@@ -85,15 +92,17 @@ async function renderData(rootData){
 
                     const addToCartBtn = curr.querySelector('.myButton');
                     addToCartBtn.addEventListener('click', (btn) => {
-                        alert("added in cart");
+                        
                     
                         if(addToCartBtn.innerHTML === 'Add to cart'){
+                            alert("added in cart");
                         addToCartBtn.style.backgroundColor = 'orange';
                         addToCartBtn.style.color = 'white';
                         addToCartBtn.innerHTML = 'remove to cart' ;
                         addToCart(ele);
                         }
                         else{
+                            alert("remove from cart");
                             addToCartBtn.style.backgroundColor = 'black';
                             addToCartBtn.style.color = 'white';
                             addToCartBtn.innerHTML = 'Add to cart' ;
@@ -113,7 +122,7 @@ async function renderData(rootData){
 }
 
 // let ccllrr = document.getElementById("ccllrr");
-// let text = ccllrr.innerText ;
+// let text = ccllrr.innerHTML ;
 // console.log(text);
 // ccllrr.style.color =  text;
 // --------------------------------------------------------------------------------------------------------------->
@@ -221,10 +230,10 @@ function applyfilter(){
         );
 
     
-    // leftfilter = leftfilter.filter((ele)=>{ele.size.includes(size) });
+    leftfilter = leftfilter.filter((ele)=>{ele.size.includes(size) });
 
-    // if(price.checked)
-    // leftfilter = leftfilter.filter((ele) => {ele.price  <= price}) ;
+    if(price.checked)
+    leftfilter = leftfilter.filter((ele) => {ele.price  <= price}) ;
     // cardContainer.innerHTML = "";
     renderData(leftfilter) ;
     
@@ -236,10 +245,18 @@ function redirect(page){
 
     currUSER.cart = currUserCart ;
 
-    console.log(currUserCart);
+    // console.log(currUserCart);
 
     sessionStorage.setItem('loggedInUser',JSON.stringify(currUSER)) ;
+    // we have to store it inside localstorage also
+    let localUser = '' ;
+        users.forEach((user)=>{
+            if(user.id === currUSER.id) {
+                user = currUSER ;
+            } 
+        });
 
+        localStorage.setItem('users',JSON.stringify(users));
     // add();
     console.log(page);
     if(page === "Home"){
