@@ -90,7 +90,7 @@ signupBtn.addEventListener("click", (event) => {
             email.value,
             password.value
           );
-          window.location.href = '/home' ;
+          
         }
       } 
       else {
