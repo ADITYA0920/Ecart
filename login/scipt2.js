@@ -2,6 +2,8 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const loginBtn=document.getElementById('loginBtn');
 
+
+
 loginBtn.addEventListener('click',(event)=>{
     event.preventDefault();
     if(email.value.trim()==='' || password.value.trim()===''){

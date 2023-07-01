@@ -1,12 +1,18 @@
 let cardContainer = document.getElementsByClassName("cards")[0] ;
+let currUSER = JSON.parse(sessionStorage.getItem('loggedInUser'));
+let currUserCart = currUSER.cart ;
 
-console.log("home js file");
+console.log(currUserCart);
+
+let buttons = [] ;
+
+console.log(currUSER);
 let idx = 0 ;
 // --------------------------------------------------------------------------------------------------------------->
 let color = ["red","black","blue","green","yellow"] ;
 let size = ['S','M','L','XL','XXL'] ;
 
-let cartArr = [] ;
+// let cartArr = [] ;
 let rootData ;
 
     fetch(' https://fakestoreapi.com/products')
@@ -43,34 +49,16 @@ function getRandomColor(){
 }
 // --------------------------------------------------------------------------------------------------------------->
 //working
-function renderData(rootData){
+async function renderData(rootData){
         
-        rootData.forEach((ele) => {
+        await rootData.forEach((ele) => {
             
             
-                updateData(ele) ;
+                 updateData(ele) ;
 
                 //  
             let curr = document.createElement('div');
-            // curr.innerHTML = `
-            // <div class="card">
-            //             <div id="img">
-            //             <img src="${ele.image}" alt="">
-            //             </div>
-            //             <div class="desc">
-            //                 <h2>${ele.title}</h2>
-            //                 <div class="prz">
-            //                     <span>Prize  : ${ele.price}</span>
-            //                     <!-- // optins -->
-            //                     <div class="size"></div> 
-            //                 </div>
-            //                 <h2>Colors :</h2>
-            //                 <h2>Rating :</h2>
-                            
-            //             </div>
-            //         <button id="cartBtn" onclick="addToCart(${ele})">Add to cart</button>
-            //     </div> 
-            // `
+
 
             curr.innerHTML = `
                     <div class="card">
@@ -86,9 +74,35 @@ function renderData(rootData){
                         <h4 id="ccllrr" >Colors:${ele.color}</h4>
                         <h4>Rating:${ele.rating}</h4>
                         </div>
-                        <button id="cartBtn" onclick="addToCart(${ele})">Add to cart</button>
+                        <button id="cartBtn" class="myButton" >Add to cart</button>
                     </div>
                     `;
+                    
+
+
+                    const addToCartBtn = curr.querySelector('.myButton');
+                    addToCartBtn.addEventListener('click', (btn) => {
+                        alert("added in cart");
+                    
+                        if(addToCartBtn.innerHTML === 'Add to cart'){
+                        addToCartBtn.style.backgroundColor = 'orange';
+                        addToCartBtn.style.color = 'white';
+                        addToCartBtn.innerHTML = 'remove to cart' ;
+                        addToCart(ele);
+                        }
+                        else{
+                            addToCartBtn.style.backgroundColor = 'black';
+                            addToCartBtn.style.color = 'white';
+                            addToCartBtn.innerHTML = 'Add to cart' ;
+                        removeFromCart(ele);
+                        }
+                        // let obj = {
+                        //     Pdata : ele ,
+                        //     Pbtn : addToCart ,
+                        // }
+                        // buttons.push(obj) ;
+                         // Call addToCart function with the selected product
+                    });
 
 
             cardContainer.appendChild(curr) ;
@@ -100,28 +114,39 @@ function renderData(rootData){
 // console.log(text);
 // ccllrr.style.color =  text;
 // --------------------------------------------------------------------------------------------------------------->
-function addToCart(currData){
-    console.log(currData) ;
-    console.log(typeof(currData));
-    
-    alert("currData") ;
-    // console.log(currData) ;
-    //     // cartArr.push(data) ;
 
-    //     // let stringForm = JSON.stringify(cartArr) ;
-    //     if(sessionStorage.getItem('cartData')){
-    //         let temp =JSON.parse(sessionStorage.getItem('cartData')) ;
-    //         temp.push(currData) ;
-    //         let stringForm = JSON.stringify(temp) ;
-    //         sessionStorage.setItem('cartData',stringForm) ;
-    //     }
-    //     else{
-    //         let temp = [] ;
-    //         temp.push(currData) ;
-    //         let stringForm = JSON.stringify(temp) ;
-    //         sessionStorage.setItem('cartData',stringForm) ;
-    //     }
+
+// --------------------------------------------------------------------------------------------------------------->
+// function add(){
+//     buttons.forEach((curr_obj) => {
+//             let btn = curr_obj.Pbtn ;
+//             console.log("inside add");
+//             console.log(curr_obj) ;
+//             if(btn.innerHTML === 'remove to cart'){
+//                 addToCart(curr_obj.Pdata);
+//             }
+//     })
+// }
+// --------------------------------------------------------------------------------------------------------------->
+function addToCart(currDatadata){
+
+
+    console.log(currDatadata) ;
+    console.log(typeof(currDatadata));
     
+   
+   
+       currUserCart.push(currDatadata) ;
+
+
+    
+}
+// ----------------------------------------------------------------------------------------------------------------->
+function removeFromCart(currDatadata){
+    
+      currUserCart = currUserCart.filter((curr)=>{
+       return  curr.id !== currDatadata.id ;
+    })
 }
 // ----------------------------------------------------------------------------------------------------------------->
 //button events
@@ -177,15 +202,18 @@ function applyfilter(){
     let size = document.getElementsByName("size")[0].value  ;
     
 
-    console.log(clr) ;
+    // console.log(typeof(clr)) ;
     console.log(size) ;
 
     let tempData = rootData ;
     
     leftfilter =  tempData.filter((ele)=>{
         console.log(clr);
+        
         console.log(`curr color is ${ele.color} and selected is ${clr}`);
       return  ele.color === clr ;
+
+            //  return clr.includes(ele.color) ;
          }
         );
 
@@ -194,7 +222,7 @@ function applyfilter(){
 
     // if(price.checked)
     // leftfilter = leftfilter.filter((ele) => {ele.price  <= price}) ;
-    cardContainer.innerHTML = "";
+    // cardContainer.innerHTML = "";
     renderData(leftfilter) ;
     
 }
@@ -202,6 +230,14 @@ function applyfilter(){
 // --------------------------------------------------------------------------------------------------------------->
 //working
 function redirect(page){
+
+    currUSER.cart = currUserCart ;
+
+    console.log(currUserCart);
+
+    sessionStorage.setItem('loggedInUser',JSON.stringify(currUSER)) ;
+
+    // add();
     console.log(page);
     if(page === "Home"){
         window.location.href = '/home' ;
@@ -220,3 +256,8 @@ function redirect(page){
         window.location.href = '/myProfile' ;
     }
 }
+// ------------------------------------------------------------------------------------------------------>
+
+const search = document.getElementById("search");
+
+// let 

@@ -28,8 +28,64 @@
         }
         .left{
             border: 2px solid black;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
         }
-        
+        .card{
+            margin: 25px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            width: 200px;
+            height: 400px;
+            border: 1px solid rgb(71, 68, 68);
+            overflow-y: auto;
+            
+        }
+        .desc{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+        #img{
+            max-width: 150px;
+            max-height: 200px;
+            /* border: 2px solid red; */
+            
+        }
+        #img img{
+            width: 150px;
+        height: 150px;
+        margin-left: 30px;
+        transition: 0.4s;
+        }
+        #img img:hover{
+            transform :scaleX(1.1) scaleY(1.1);
+        }
+        .prz{
+            display: flex;
+            justify-content: space-between;
+        }
+        .card button{
+            width: auto;
+            height: 35px;
+            justify-content: center;
+            align-content: center;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+        .card button:hover{
+            transform: scaleX(0.9) scaleY(0.9);
+            background-color: rgb(26, 25, 25);
+        }
+        .desc{
+            height: 250px;
+            overflow-y: auto;
+            border: 1px solid green;
+        }
         .right{
             display: flex;
             flex-direction: column;
@@ -39,6 +95,10 @@
         #checkHead{
             font-size: 20px;
             margin-left: 80px;
+        }
+        #cartBtn{
+            background-color: red;
+            columns: white;
         }
         .data{
             display: flex;
@@ -57,6 +117,10 @@
             /* font-size: 18px; */
             padding: 10px;
         }
+        #totalPrize{
+            font-size: 20px;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -70,12 +134,15 @@
                 </div>
                 <div class="right">
                     <!-- use dynamic data -->
-                    <h2 id="checkHead">Checkout List</h2>
-                        
-                            <span id="totalPrize">Prize${}</span>
+                       <h2 id="checkHead">Checkout List</h2>
+                        <div id="items">
+                            <!-- //dynamic data -->
                         </div>
-                        
+                       
+                        Total Prize => <span id="totalPrize"></span>
+
                         <button id="checkout">Click to CheckOut</button>
+                    </div>
                 </div>
             </div>
         </div>
