@@ -3,6 +3,14 @@ let currUSER = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
 let users = JSON.parse(localStorage.getItem('users'));
 
+
+// users.forEach((user)=>{
+//     if(user.email === currUSER.email) {
+//         console.log("true");
+//         user = currUSER ;
+//     } 
+// });
+
 let currUserCart = currUSER.cart ;
 
 console.log(currUserCart);
@@ -241,16 +249,17 @@ function redirect(page){
 
     // console.log(currUserCart);
 
-    sessionStorage.setItem('loggedInUser',JSON.stringify(currUSER)) ;
+    
     // we have to store it inside localstorage also
-    let localUser = '' ;
+    
         users.forEach((user)=>{
-            if(user.id === currUSER.id) {
-                user = currUSER ;
+            if(user.email === currUSER.email) {
+                user.cart = currUSER.cart ;
             } 
         });
 
         localStorage.setItem('users',JSON.stringify(users));
+        sessionStorage.setItem('loggedInUser',JSON.stringify(currUSER)) ;
     // add();
     console.log(page);
     if(page === "Home"){

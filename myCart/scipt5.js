@@ -1,6 +1,6 @@
 const given_data = JSON.parse(sessionStorage.getItem('loggedInUser')) ;
 let  data =given_data.cart ;
-
+let users = localStorage.getItem('users');
 const leftContainer = document.getElementsByClassName("left")[0] ;
 const rightContainer = document.getElementsByClassName("right")[0] ;
 
@@ -100,5 +100,12 @@ function removeProduct(curr){
         console.log(data) ;
         given_data.cart = data ;
         sessionStorage.setItem('loggedInUser',JSON.stringify(given_data));
+        users.forEach((user)=>{
+            if(user.email === given_data.email) {
+                user = given_data ;
+            } 
+        });
+
+        localStorage.setItem('users',JSON.stringify(users));
         renderData(data);
 }
